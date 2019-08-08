@@ -1,3 +1,5 @@
+Prerequisite - create a key pair and put it in terraform vars - can be automated, but well, a bit easier.
+
 # ECS with ALB example
 
 This example shows how to launch an ECS service fronted with Application Load Balancer.
