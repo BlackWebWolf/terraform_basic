@@ -1,6 +1,6 @@
 variable "aws_region" {
   description = "The AWS region to create things in."
-  default     = "ap-southeast-1"
+  default     = "eu-central-1"
 }
 
 variable "az_count" {
@@ -10,11 +10,10 @@ variable "az_count" {
 
 variable "key_name" {
   description = "Name of AWS key pair"
-  default = "makerjournal-stage"
 }
 
 variable "instance_type" {
-  default     = "t2.small"
+  default     = "t3.small"
   description = "AWS instance type"
 }
 
@@ -32,14 +31,22 @@ variable "asg_desired" {
   description = "Desired numbers of servers in ASG"
   default     = "1"
 }
-
-variable "admin_cidr_ingress" {
-  description = "CIDR to allow tcp/22 ingress to EC2 instance"
-}
 variable "image_url" {
   default = "nginx"
 }
 
-variable "container_name" {
-  default = "makerjournal-wordpress"
+variable "app_name" {}
+variable "app_container_name" {}
+
+variable "cidr_block" {}
+variable "cidr_block_public" {
+  type = "list"
 }
+variable "cidr_block_private" {
+  type = "list"
+}
+variable "cidr_block_database" {
+  type = "list"
+}
+variable "bucket" {}
+variable "dynamodb_table" {}

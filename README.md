@@ -4,24 +4,23 @@ This example shows how to launch an ECS service fronted with Application Load Ba
 
 The example uses latest CoreOS Stable AMIs.
 
-To run, configure your AWS provider as described in https://www.terraform.io/docs/providers/aws/index.html
+All in all it sets up all infra needed to minimal run of simple nodejs app (with some overkill with adding already db subnets if needed)
+
+On final step of apply as an output there will be a DNS name of alb - it should point to nginx container, served by ecs - it may be easily switched to anything, so pretty much - working infra.
 
 ## Get up and running
+Init phase - go to `tf-state-inialization` and run init.sh 
 
 Planning phase
 
 ```
-terraform plan \
-	-var admin_cidr_ingress='"{your_ip_address}/32"' \
-	-var key_name={your_key_name}
+bash plan.sh
 ```
 
 Apply phase
 
 ```
-terraform apply \
-	-var admin_cidr_ingress='"{your_ip_address}/32"' \
-	-var key_name={your_key_name}
+bash apply.sh
 ```
 
 Once the stack is created, wait for a few minutes and test the stack by launching a browser with the ALB url.
@@ -29,5 +28,7 @@ Once the stack is created, wait for a few minutes and test the stack by launchin
 ## Destroy :boom:
 
 ```
-terraform destroy
+bash destroy.sh
 ```
+
+
